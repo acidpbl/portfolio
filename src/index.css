@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
+@import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+.active::before {
+  content: "";
+  width: 11px;
+  height: 4px;
+  background-color: transparent;
+  border-radius: 100%;
+}
+
+.active::after {
+  content: "";
+  width: 6px;
+  height: 16px;
+  background-color: theme(colors.purple.600);
+  border-radius: 100% 0% 0% 100%;
+  margin-left: 5px;
+}
+
+.noise {
+  background-image: url("./assets/noise.png");
+  background-blend-mode: screen;
+}
