@@ -14,21 +14,17 @@
   -webkit-user-select: none;
 }
 
-.active::before {
-  content: "";
-  width: 11px;
-  height: 4px;
-  background-color: transparent;
-  border-radius: 100%;
-}
-
 .active::after {
   content: "";
-  width: 6px;
-  height: 16px;
-  background-color: theme(colors.purple.600);
-  border-radius: 100% 0% 0% 100%;
-  margin-left: 5px;
+  width: 4px;
+  height: 4px;
+  background-color: theme(colors.neutral.100);
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  transform: translateY(-50%);
+  box-shadow: 0 0 4px 1px theme(colors.purple.500);
 }
 
 .noise {

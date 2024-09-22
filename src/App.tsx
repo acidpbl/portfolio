@@ -109,7 +109,7 @@ function App() {
               <div
                 className={twMerge(
                   "h-12 bg-accent-700 rounded flex items-center justify-center cursor-pointer hover:bg-accent-800 transition-colors ease-linear",
-                  projectIndex === index && "border-2 border-purple-600 active"
+                  projectIndex === index && "border-2 border-purple-600 active relative"
                 )}
                 onClick={() => setProjectIndex(index)}
               >
