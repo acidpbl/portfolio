@@ -2,14 +2,14 @@ import * as Icon from "@phosphor-icons/react";
 
 export function Aurora() {
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-col gap-2">
       <div className="flex gap-4">
-        <div className="px-20 py-8 h-fit bg-pink-300 text-fuchsia-500 rounded-lg">
+        <div className="py-8 w-80 flex items-center justify-center h-fit bg-pink-300 text-fuchsia-500 rounded-lg">
           <Icon.SunHorizon weight="fill" size={120} />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 w-4/6">
           <h2 className="font-medium text-4xl text-violet-500">Aurora v4</h2>
-          <span className="text-neutral-300 font-jet">
+          <span className="text-neutral-400 font-jet">
             Aurora é um projeto de Dashboard para o uso de página inicial do
             navegador, seu intuito é dar funções uteis ao usuário de forma
             rápida e prática.
