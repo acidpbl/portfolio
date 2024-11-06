@@ -6,7 +6,7 @@ import { Corinthians } from "./assets/Corinthians";
 
 function App() {
   return (
-    <div className="w-screen h-screen bg-indigo-600 grid grid-cols-4 grid-rows-7 gap-2 p-4">
+    <div className="w-screen h-screen bg-indigo-600 grid grid-cols-4 grid-rows-7 gap-2 p-4 noise">
       <header className="w-full rounded-lg bg-neutral-800 flex items-center justify-center p-4 col-span-4">
         <span className="text-neutral-200 font-mono text-xl">
           Pablo's Portfolio

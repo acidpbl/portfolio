@@ -15,21 +15,8 @@ body {
   overflow-x: hidden;
 }
 
-.active::after {
-  content: "";
-  width: 4px;
-  height: 4px;
-  background-color: theme(colors.neutral.100);
-  border-radius: 50%;
-  position: absolute;
-  top: 4px;
-  right: 2px;
-  transform: translateY(-50%);
-  box-shadow: 0 0 4px 1px theme(colors.purple.500);
-}
-
 .noise {
   background-image: url("./assets/noise.png");
-  background-blend-mode: screen;
+  background-blend-mode: multiply;
   background-attachment: fixed;
 }
