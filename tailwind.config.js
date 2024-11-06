@@ -13,7 +13,6 @@ export default {
       },
       fontFamily: {
         mono: "JetBrains Mono, sans-serif",
-        sans: "Noto Sans, sans-serif",
       },
     },
   },
