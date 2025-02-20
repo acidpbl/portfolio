@@ -9,42 +9,57 @@ import { useState } from "react";
 
 function App() {
   const [isHovered, setIsHovered] = useState<string | null>(null);
+  const [asideOpen, setAsideOpen] = useState<boolean>(false);
 
   return (
     <div className="bg-black w-screen h-screen flex">
-      <aside className="p-8 h-full w-fit box-border border-r border-amber-50">
-        <div className="w-full h-fit pb-15 flex items-center justify-center">
+      <aside
+        className="p-8 h-full w-fit box-border border-r border-yellow-50"
+        onMouseOver={() => setAsideOpen(true)}
+        onMouseOut={() => setAsideOpen(false)}
+      >
+        <div className="w-full h-fit pb-15 flex items-center gap-4 transition-all ease-linear px-1">
           <Moon
             weight="fill"
             size={30}
             className="relative text-accent-500 rotate-270"
-            onMouseOver={() => setIsHovered("moon")}
-            onMouseOut={() => setIsHovered(null)}
           />
-        </div>
-        <ul className="text-amber-50 flex flex-col gap-2 h-10/12">
-          <li
-            onMouseOver={() => setIsHovered("projects")}
-            onMouseOut={() => setIsHovered(null)}
-            className="flex gap-4 items-center group/asidebtn"
+          <span
+            className="text-white"
+            style={{ display: asideOpen ? "flex" : "none" }}
           >
-            <span className="p-2.5 rounded-full bg-transparent transition-colors ease-linear group-hover/asidebtn:bg-white group-hover/asidebtn:text-black">
+            pbl
+          </span>
+        </div>
+        <ul className="text-yellow-50 flex flex-col gap-2 h-10/12">
+          <li className="flex gap-4 items-center justify-start group/asidebtn">
+            <span
+              onMouseOver={() => setIsHovered("projects")}
+              onMouseOut={() => setIsHovered(null)}
+              className="p-2.5 flex gap-4 rounded-full bg-transparent transition-colors ease-linear group-hover/asidebtn:bg-white group-hover/asidebtn:text-black"
+            >
               <SquaresFour
                 weight={isHovered === "projects" ? "fill" : "bold"}
                 size={20}
               />
             </span>
+            <span style={{ display: asideOpen ? "flex" : "none" }}>
+              Projects
+            </span>
           </li>
-          <li
-            onMouseOver={() => setIsHovered("contact")}
-            onMouseOut={() => setIsHovered(null)}
-            className="flex gap-4 items-center group/asidebtn"
-          >
-            <span className="relative p-2.5 rounded-full bg-transparent group-hover/asidebtn:bg-white group-hover/asidebtn:text-black">
+          <li className="flex gap-4 items-center justify-start group/asidebtn">
+            <span
+              className="relative p-2.5 rounded-full bg-transparent group-hover/asidebtn:bg-white group-hover/asidebtn:text-black"
+              onMouseOver={() => setIsHovered("address")}
+              onMouseOut={() => setIsHovered(null)}
+            >
               <AddressBook
-                weight={isHovered == "contact" ? "fill" : "bold"}
+                weight={isHovered == "address" ? "fill" : "bold"}
                 size={20}
               />
+            </span>
+            <span style={{ display: asideOpen ? "flex" : "none" }}>
+              Contact
             </span>
           </li>
         </ul>
@@ -77,17 +92,19 @@ function App() {
             </a>
           </div>
         </div>
-        <div className="p-8 rounded-xl row-start-6 row-end-9 col-start-1 col-end-2 bg-white grid grid-cols-4 grid-rows-6 gap-4 selection:bg-black selection:text-white">
+        <div className="p-8 rounded-xl row-start-6 row-end-9 col-start-1 col-end-2 bg-yellow-500 grid grid-cols-4 grid-rows-6 gap-4 selection:bg-black selection:text-yellow-500">
           <h1 className="font-oi text-3xl row-start-2 row-end-1 col-start-1 col-end-4">
             ABOUT ME
           </h1>
           <p className="font-poppins leading-5.25 row-start-2 row-end-7 col-start-1 col-end-4">
-            Hey! 👋 My name is Pablo, I'm 21 years old and I study Graphic
-            Design and UI/UX. I have always been passionate about visual arts,
-            and I believe that design is a powerful way to communicate ideas and
-            improve people's experience. In addition to aesthetics, my priority
-            is to solve problems creatively and efficiently. ✌️ I am driven by
-            curiosity and the desire to understand what is behind every detail.
+            Hey! My name is Pablo, I'm 21 years old and I study Graphic Design
+            and UI/UX.
+            <br />I have always been passionate about visual arts, and I believe
+            that design is a powerful way to communicate ideas and improve
+            people's experience. In addition to aesthetics, my priority is to
+            solve problems creatively and efficiently.
+            <br />I am driven by curiosity and the desire to understand what is
+            behind every detail.
           </p>
           <span className="font-poppins font-medium text-xs col-start-5 col-end-5 justify-self-end">
             Vai Corinthians!
@@ -95,12 +112,12 @@ function App() {
           <a
             href="https://instagram.com/acidpbl"
             target="_blank"
-            className="justify-self-end row-start-6 self-end col-start-5 size-fit py-2 px-4 border-2 rounded-full font-jetbrains-mono ligatures transition-colors ease-linear hover:bg-black hover:text-white hover:border-black"
+            className="justify-self-end row-start-6 self-end col-start-5 size-fit py-2 px-4 border-2 rounded-full font-jetbrains-mono ligatures transition-colors ease-linear hover:bg-black hover:text-yellow-500 hover:border-black"
           >
             {"-->"}
           </a>
         </div>
-        <div className="p-8 rounded-xl row-start-6 row-end-9 col-start-2 col-end-3 bg-accent-400 grid grid-rows-4 grid-cols-8 items-end justify-between  selection:bg-white selection:text-accent-400">
+        <div className="relative p-8 rounded-xl row-start-6 row-end-9 col-start-2 col-end-3 bg-accent-400 grid grid-rows-4 grid-cols-8 items-end justify-between overflow-hidden selection:bg-white selection:text-accent-400">
           <h1 className="font-oi text-3xl text-white row-start-4">PROJECTS</h1>
           <a
             href=""
@@ -108,12 +125,15 @@ function App() {
           >
             {"-->"}
           </a>
+          <span className="absolute mb-24">
+            <SquaresFour weight="fill" className="-rotate-8" size={220} />
+          </span>
           <span className="font-poppins font-medium text-xs row-start-1 row-end-1 col-start-8 text-nowrap self-start justify-self-end text-white">
             2+ Projects Ended
           </span>
         </div>
       </div>
-      <div className="w-4/10 h-full border-l border-amber-50"></div>
+      <div className="w-4/10 h-full border-l border-yellow-50"></div>
     </div>
   );
 }
