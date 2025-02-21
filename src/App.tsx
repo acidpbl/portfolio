@@ -167,13 +167,14 @@ function App() {
           <h1 className="font-oi text-3xl row-start-2 row-end-1 col-start-1 col-end-4">
             ABOUT ME
           </h1>
-          <p className="font-poppins leading-5.25 row-start-2 row-end-7 col-start-1 col-end-4">
+          <p className="font-poppins leading-5.25 row-start-2 row-end-7 col-start-1 col-end-5">
             Hey! My name is Pablo, I'm 21 years old and I study Graphic Design
             and UI/UX.
-            <br />I have always been passionate about visual arts, and I believe
-            that design is a powerful way to communicate ideas and improve
-            people's experience. In addition to aesthetics, my priority is to
-            solve problems creatively and efficiently.
+            <br />I have always been passionate about visual arts,
+            <br />
+            and I believe that design is a powerful way to communicate ideas and
+            improve people's experience. In addition to aesthetics, my priority
+            is to solve problems creatively and efficiently.
             <br />I am driven by curiosity and the desire to understand what is
             behind every detail.
           </p>
