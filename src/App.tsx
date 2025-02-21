@@ -6,10 +6,81 @@ import {
   UserCircle,
 } from "@phosphor-icons/react";
 import { useState } from "react";
+import PabloImg from "../assets/pablo.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBehance,
+  faDiscord,
+  faFigma,
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  faSpotify,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [isHovered, setIsHovered] = useState<string | null>(null);
   const [asideOpen, setAsideOpen] = useState<boolean>(false);
+
+  const born = new Date("2003-09-30");
+  const today = new Date();
+
+  let age = today.getFullYear() - born.getFullYear();
+  const todayMonth = today.getMonth();
+  const todayDay = today.getDate();
+
+  if (
+    todayMonth < born.getMonth() ||
+    (todayMonth === born.getMonth() && todayDay < born.getDate())
+  ) {
+    age--;
+  }
+
+  const myAge = age;
+
+  const contactBtns = [
+    {
+      name: "Behance",
+      icon: faBehance,
+      url: "https://behance.net/acidpbl",
+    },
+    {
+      name: "GitHub",
+      icon: faGithub,
+      url: "https://github.com/acidpbl",
+    },
+    {
+      name: "LinkedIn",
+      icon: faLinkedin,
+      url: "https://liknkedin.com/in/pabloalbrnz",
+    },
+    {
+      name: "Figma",
+      icon: faFigma,
+      url: "https://figma.com/@acidpbl",
+    },
+    {
+      name: "Mail",
+      icon: faEnvelope,
+      url: "mailto:pabloalbernazrincon@gmail.com",
+    },
+    {
+      name: "Instagram",
+      icon: faInstagram,
+      url: "https://instagram/acidpbl",
+    },
+    {
+      name: "Discord",
+      icon: faDiscord,
+      url: "https://discord.com/invite/MJkjKTgS4p",
+    },
+    {
+      name: "Spotify",
+      icon: faSpotify,
+      url: "https://open.spotify.com/user/22afnrsoqqy3diy2vxocgn6ga?si=5f00fa4163a943d1",
+    },
+  ];
 
   return (
     <div className="bg-black w-screen h-screen flex">
@@ -133,7 +204,40 @@ function App() {
           </span>
         </div>
       </div>
-      <div className="w-4/10 h-full border-l border-yellow-50"></div>
+      <div className="w-4/10 h-full border-l border-yellow-50 p-4">
+        <div className="flex flex-col gap-4 size-full">
+          <img src={PabloImg} alt="Pablo Selfie" className="rounded-xl" />
+          <div className="flex flex-col gap-4 size-full">
+            <div className="flex flex-col">
+              <div className="flex items-center gap-4">
+                <span className="text-accent-400 text-3xl font-oi">
+                  Pablo Albernaz
+                </span>
+                <span className="text-zinc-400 text-lg font-medium font-poppins">
+                  He/Him
+                </span>
+              </div>
+              <span className="text-white font-poppins">{myAge} years old</span>
+              <span className="text-white font-poppins">Graphic Designer</span>
+            </div>
+            <div className="h-px w-full bg-zinc-400" />
+            <div className="grid grid-cols-4 gap-x-4 gap-y-8 p-4">
+              {contactBtns.map((btn) => (
+                <div className="flex flex-col gap-1 items-center">
+                  <a
+                    className="flex p-4 aspect-square min-h-16 items-center justify-center border-2 border-accent-400 rounded-lg transition-colors ease-linear text-accent-400 hover:bg-accent-400 hover:text-black"
+                    target="_blank"
+                    href={btn.url}
+                  >
+                    <FontAwesomeIcon size="xl" icon={btn.icon} />
+                  </a>
+                  <span className="text-accent-400">{btn.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
